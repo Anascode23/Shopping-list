@@ -13,15 +13,18 @@ while (true)
         case "add":
             if (choice == "add")
             {
+                 Console.WriteLine("----------------------------------------------------------------");
                 Console.WriteLine("Please enter the items spearted by comma eg.(apple, banana)");
                 var addingItem = Console.ReadLine();
 
                 Console.WriteLine("----------------------------------------------------------------");
-                if (!string.IsNullOrWhiteSpace(addingItem)){
-                    list.Add(addingItem);
+                if (!string.IsNullOrWhiteSpace(addingItem))
+                {
+                    var items = addingItem.Trim().Split(',');
+                    list.AddRange(items);
                     Console.WriteLine("Item(s) added");
                 }
-                    
+
 
                 else
                     Console.WriteLine("Invaild item please try again");
@@ -32,19 +35,26 @@ while (true)
         case "remove":
             if (choice == "remove")
             {
+                 Console.WriteLine("----------------------------------------------------------------");
                 Console.WriteLine("Please enter the item you want to remove");
                 var itemToRemove = Console.ReadLine();
                 Console.WriteLine("----------------------------------------------------------------");
                 for (int i = list.Count - 1; i >= 0; i--)
                 {
+                    if(!string.IsNullOrWhiteSpace(itemToRemove)){
                     if (list[i] == itemToRemove)
                     {
                         list.RemoveAt(i);
                         Console.WriteLine("Item removed!");
+                        
                         break;
                     }
+                     Console.WriteLine("----------------------------------------------------------------");
+                    }
+                    
                     else
                         Console.WriteLine("Item not found please try again");
+                
                 }
             }
 
