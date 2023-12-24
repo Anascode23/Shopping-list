@@ -14,7 +14,7 @@ while (true)
             if (choice == "add")
             {
                  Console.WriteLine("----------------------------------------------------------------");
-                Console.WriteLine("Please enter the items spearted by comma eg.(apple, banana)");
+                Console.WriteLine("Please enter the items spearted by comma eg.(apple,banana)");
                 var addingItem = Console.ReadLine();
 
                 Console.WriteLine("----------------------------------------------------------------");
@@ -35,8 +35,9 @@ while (true)
         case "remove":
             if (choice == "remove")
             {
-                 Console.WriteLine("----------------------------------------------------------------");
+                
                 Console.WriteLine("Please enter the item you want to remove");
+                 Console.WriteLine("----------------------------------------------------------------");
                 var itemToRemove = Console.ReadLine();
                 Console.WriteLine("----------------------------------------------------------------");
                 for (int i = list.Count - 1; i >= 0; i--)
