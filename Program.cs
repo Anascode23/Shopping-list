@@ -37,7 +37,11 @@ while (true)
         case "remove":
             if (choice == "remove")
             {
+                if(list.Count == 0){
+                    Console.WriteLine("The list is empty");
+                }
 
+                else{
                 Console.WriteLine("Please enter the item you want to remove");
                 Console.WriteLine("----------------------------------------------------------------");
                 var itemToRemove = Console.ReadLine();
@@ -55,11 +59,13 @@ while (true)
                         }
                         Console.WriteLine("----------------------------------------------------------------");
                     }
+                    
 
                     else
                         Console.WriteLine("Item not found please try again");
-
+                    }
                 }
+
             }
 
             break;
@@ -69,11 +75,15 @@ while (true)
             case "removeall":
             if (choice == "removeall")
             {
+                if(list.Count == 0){
+                    Console.WriteLine("The list is empty");
+                }
+                else{
                 Console.WriteLine("----------------------------------------------------------------");
                 list.Clear();      
                 Console.WriteLine("Your list is now empty");
                 Console.WriteLine("----------------------------------------------------------------");
-
+                }
             }
 
             break;
