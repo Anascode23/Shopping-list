@@ -3,7 +3,7 @@
 
 while (true)
 {
-    Console.WriteLine("Please enter what you want to do with you list:  \nadd, \nremove, \nshow list, \nexit:  ");
+    Console.WriteLine("Please enter what you want to do with you list:  \nadd, \nremove, \nremoveall, \nshow list, \nexit:  ");
     var choice = Console.ReadLine();
     if (choice == "exit" || choice == "quit")
         break;
@@ -13,7 +13,7 @@ while (true)
         case "add":
             if (choice == "add")
             {
-                 Console.WriteLine("----------------------------------------------------------------");
+                Console.WriteLine("----------------------------------------------------------------");
                 Console.WriteLine("Please enter the items spearted by comma eg.(apple,banana)");
                 var addingItem = Console.ReadLine();
 
@@ -23,8 +23,10 @@ while (true)
                     var items = addingItem.Trim().Split(',');
                     list.AddRange(items);
                     Console.WriteLine("Item(s) added");
+                    Console.WriteLine("----------------------------------------------------------------");
                 }
 
+                
 
                 else
                     Console.WriteLine("Invaild item please try again");
@@ -35,28 +37,43 @@ while (true)
         case "remove":
             if (choice == "remove")
             {
-                
+
                 Console.WriteLine("Please enter the item you want to remove");
-                 Console.WriteLine("----------------------------------------------------------------");
+                Console.WriteLine("----------------------------------------------------------------");
                 var itemToRemove = Console.ReadLine();
                 Console.WriteLine("----------------------------------------------------------------");
                 for (int i = list.Count - 1; i >= 0; i--)
                 {
-                    if(!string.IsNullOrWhiteSpace(itemToRemove)){
-                    if (list[i] == itemToRemove)
+                    if (!string.IsNullOrWhiteSpace(itemToRemove))
                     {
-                        list.RemoveAt(i);
-                        Console.WriteLine("Item removed!");
-                        
-                        break;
+                        if (list[i] == itemToRemove)
+                        {
+                            list.RemoveAt(i);
+                            Console.WriteLine("Item removed!");
+
+                            break;
+                        }
+                        Console.WriteLine("----------------------------------------------------------------");
                     }
-                     Console.WriteLine("----------------------------------------------------------------");
-                    }
-                    
+
                     else
                         Console.WriteLine("Item not found please try again");
-                
+
                 }
+            }
+
+            break;
+
+
+
+            case "removeall":
+            if (choice == "removeall")
+            {
+                Console.WriteLine("----------------------------------------------------------------");
+                list.Clear();      
+                Console.WriteLine("Your list is now empty");
+                Console.WriteLine("----------------------------------------------------------------");
+
             }
 
             break;
@@ -65,8 +82,12 @@ while (true)
             if (choice == "show list")
             {
                 Console.WriteLine("----------------------------------------------------------------");
-                foreach (var item in list)
-                    Console.WriteLine("Grocery list: " + item);
+                Console.WriteLine("Grocery list:");
+                foreach (var item in list){
+                    Console.WriteLine(item);
+                }
+                    
+
 
                 Console.WriteLine("----------------------------------------------------------------");
             }
